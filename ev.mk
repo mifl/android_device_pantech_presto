@@ -11,8 +11,8 @@ $(call inherit-product, vendor/ev/config/common_full_phone.mk)
 $(call inherit-product, device/pantech/presto/full_presto.mk)
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 800
-TARGET_SCREEN_WIDTH  := 480
+PRODUCT_COPY_FILES +=  \
+    vendor/ev/prebuilt/wvga/media/bootanimation.zip:system/media/bootanimation.zip
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_NAME := ev_presto
