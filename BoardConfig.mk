@@ -85,7 +85,7 @@ BOARD_KERNEL_CMDLINE            := console=ttyHSL0,115200,n8 androidboot.hardwar
 BOARD_KERNEL_PAGESIZE           := 2048
 BOARD_MKBOOTIMG_ARGS            := --ramdisk_offset 0x01400000
 TARGET_KERNEL_CONFIG            := evervolv_presto_defconfig
-#TARGET_KERNEL_CUSTOM_TOOLCHAIN  := arm-eabi-4.4.3
+KERNEL_TOOLCHAIN_PREFIX         := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7/bin/arm-eabi-
 TARGET_KERNEL_SOURCE            := kernel/pantech/msm8660-common
 TARGET_PREBUILT_KERNEL          := device/pantech/presto/prebuilt/kernel/kernel
 
