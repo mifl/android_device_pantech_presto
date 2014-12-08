@@ -78,6 +78,9 @@ PRODUCT_COPY_FILES += \
 # Recovery
 #PRODUCT_COPY_FILES += $(LOCAL_PATH)/recovery.fstab:root/recovery.fstab
 
+# TWRP Recovery
+PRODUCT_COPY_FILES += device/pantech/presto/twrp.fstab:recovery/root/etc/twrp.fstab
+
 #----------------------------------------------------------------------
 
 # Audio
