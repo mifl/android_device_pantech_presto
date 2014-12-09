@@ -92,6 +92,11 @@ TARGET_PREBUILT_KERNEL          := device/pantech/presto/prebuilt/kernel/kernel
 # Radio fixes
 BOARD_RIL_CLASS := ../../../device/pantech/presto/ril/PantechQualcommUiccRIL.java
 
+# Recovery
+BOARD_CUSTOM_GRAPHICS := ../../../device/pantech/presto/recovery/graphics.c
+TARGET_RECOVERY_UI_LIB := librecovery_ui_qcom
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+
 # SD Card info
 BOARD_SDCARD_DEVICE_PRIMARY     := /dev/block/mmcblk1p1
 BOARD_SDCARD_DEVICE_SECONDARY   := /dev/block/mmcblk1
