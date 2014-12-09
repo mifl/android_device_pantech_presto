@@ -94,7 +94,6 @@ BOARD_RIL_CLASS := ../../../device/pantech/presto/ril/PantechQualcommUiccRIL.jav
 
 # Recovery
 BOARD_CUSTOM_GRAPHICS := ../../../device/pantech/presto/recovery/graphics.c
-TARGET_RECOVERY_UI_LIB := librecovery_ui_qcom
 TARGET_RECOVERY_DEVICE_DIRS += device/pantech/presto
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
