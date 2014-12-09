@@ -97,6 +97,9 @@ PRODUCT_PACKAGES += \
     init.presto.rc \
     init.qcom.baseband.sh
 
+# Recovery
+PRODUCT_PACKAGES += init.recovery.qcom.rc
+
 # Sky_touch
 PRODUCT_PACKAGES += libsky_touch
 
