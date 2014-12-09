@@ -101,7 +101,7 @@ PRODUCT_PACKAGES += \
     init.qcom.baseband.sh
 
 # Sky_touch
-PRODUCT_PACKAGES += libsky_touch
+#PRODUCT_PACKAGES += libsky_touch
 
 # Torch
 PRODUCT_PACKAGES += \
