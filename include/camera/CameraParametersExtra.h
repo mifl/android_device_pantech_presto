@@ -77,16 +77,16 @@ const char CameraParameters::WHITE_BALANCE_OFF[] = "off"; \
 const char CameraParameters::REFLECT_MIRROR[] = "mirror"; \
 const char CameraParameters::REFLECT_WATER[] = "water"; \
 const char CameraParameters::REFLECT_MIRROR_WATER[] = "mirror-water"; \
-void CameraParameters::getColorExtractionCoordinates(int *x, int *y) const {} \
-void CameraParameters::setColorExtractionCoordinates(int x, int y) {} \
-void CameraParameters::getColorExtractionRGB_B(int *x, int *y) const {} \
+void CameraParameters::getColorExtractionCoordinates(int *x, int *y) const {}; \
+void CameraParameters::setColorExtractionCoordinates(int x, int y) {}; \
+void CameraParameters::getColorExtractionRGB_B(int *x, int *y) const {}; \
 void CameraParameters::setColorExtractionRGB_B(int x, int y) {} \
-void CameraParameters::getColorExtractionRGB_G(int *x, int *y) const {} \
-void CameraParameters::setColorExtractionRGB_G(int x, int y) {} \
-void CameraParameters::getColorExtractionRGB_R(int *x, int *y) const {} \
-void CameraParameters::setColorExtractionRGB_R(int x, int y) {} \
-void CameraParameters::getFocusCoordinates(int *x, int *y) const {} \
-void CameraParameters::setFocusCoordinates(int x, int y) {}
+void CameraParameters::getColorExtractionRGB_G(int *x, int *y) const {}; \
+void CameraParameters::setColorExtractionRGB_G(int x, int y) {}; \
+void CameraParameters::getColorExtractionRGB_R(int *x, int *y) const {}; \
+void CameraParameters::setColorExtractionRGB_R(int x, int y) {}; \
+void CameraParameters::getFocusCoordinates(int *x, int *y) const {}; \
+void CameraParameters::setFocusCoordinates(int x, int y) {};
 
 #define CAMERA_PARAMETERS_EXTRA_H \
     static const char KEY_SKY_COLOREXT_COORDINATES_R[]; \
