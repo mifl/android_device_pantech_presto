@@ -136,3 +136,40 @@
 
 /dev/oncrpc/3001000e:00020000  0666   root       qcom_oncrpc
 /dev/oncrpc/3001006b:00010000  0666   root       qcom_oncrpc
+
+# these should not be world writable
+/dev/ttyHS0               0600   bluetooth  bluetooth
+/dev/pmem_audio           0660   system     audio
+/dev/pmem_smipool*        0660   system     camera
+/dev/radio0               0644   fm_radio   fm_radio
+/dev/i2c-0                0664   root       system
+/dev/i2c-1                0664   root       system
+/dev/i2c-2                0664   root       system
+/dev/i2c-4                0664   root       system
+/dev/msm_a2dp_in          0660   system     audio
+/dev/msm_mvs              0660   system     audio
+/dev/msm_voicememo        0660   system     audio
+/dev/aud_sub*             0777   system     audio
+/dev/qseecom              0660   system     drmrpc
+/dev/tzcom                0660   system     drmrpc
+/dev/qce                  0660   system     drmrpc
+/dev/msm_pcm_lp_dec       0660   system     audio
+/dev/msm_mvs              0660   system     audio
+/dev/qemu_trace           0666   system     system
+/dev/block/mmcblk0p17     0660   system     system
+/dev/block/mmcblk0p18     0660   system     system
+/dev/block/mmcblk0p20     0660   system     system
+/dev/block/mmcblk0p21     0660   system     system
+/dev/block/mmcblk0p22     0660   system     system
+/dev/msm_preproc_ctl      0660   system     audio
+/dev/msm_acdb             0660   system     audio
+/dev/msm_fm               0660   system     audio
+/dev/msm_rtac             0660   system     audio
+/dev/oncrpc/300000ba:00010000  0660   system     drmrpc
+
+# sysfs properties
+/sys/devices/virtual/smdpkt/smdcntl*       open_timeout   0664 radio radio
+
+
+#permissions for sensors
+/dev/msm_dsps             0660  system       system
