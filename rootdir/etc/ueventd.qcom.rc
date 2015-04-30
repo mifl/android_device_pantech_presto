@@ -41,7 +41,12 @@
 /dev/smd5                 0660   system     system
 /dev/smd6                 0660   system     system
 /dev/smd7                 0660   bluetooth  bluetooth
+/dev/ttyHS0               0600   bluetooth  bluetooth
 /dev/radio0               0640   fm_radio   fm_radio
+/dev/i2c-0                0664   root       system
+/dev/i2c-1                0664   root       system
+/dev/i2c-2                0664   root       system
+/dev/i2c-4                0664   root       system
 /dev/rfcomm0              0660   bluetooth  bluetooth
 /dev/smdcntl0             0640   radio      radio
 /dev/smdcntl1             0640   radio      radio
@@ -70,11 +75,15 @@
 /dev/media*               0660   system     camera
 /dev/v4l-subdev*          0660   system     camera
 /dev/qseecom              0660   system     drmrpc
+/dev/tzcom                0660   system     drmrpc
+/dev/qce                  0660   system     drmrpc
 /dev/gemini0              0660   system     camera
 /dev/jpeg0                0660   system     camera
 /dev/jpeg1                0660   system     camera
 /dev/jpeg2                0660   system     camera
+/dev/pmem_audio           0660   system     audio
 /dev/msm_camera/*         0660   system     camera
+/dev/pmem_smipool*        0660   system     camera
 /dev/gemini/              0660   system     camera
 /dev/mercury0             0660   system     camera
 /dev/msm_vidc_reg         0660   system     audio
@@ -84,6 +93,14 @@
 /dev/msm_rotator          0660   system     system
 /dev/hw_random            0660   system     system
 /dev/adsprpc-smd          0664   system     system
+/dev/oncrpc/300000ba:00010000  0660   system     drmrpc
+
+# Partition layout
+/dev/block/mmcblk0p17     0660   system     system
+/dev/block/mmcblk0p18     0660   system     system
+/dev/block/mmcblk0p20     0660   system     system
+/dev/block/mmcblk0p21     0660   system     system
+/dev/block/mmcblk0p22     0660   system     system
 
 #permissions for audio
 /dev/msm_qcelp            0660   system     audio
@@ -109,6 +126,7 @@
 /dev/msm_preproc_ctl      0660   system     audio
 /dev/msm_rtac             0660   system     audio
 /dev/msm_voicememo        0660   system     audio
+/dev/aud_sub*             0777   system     audio
 /dev/audience_a1026*      0660   system     audio
 /dev/audience_a2220       0660   system     audio
 /dev/radio0               0640   fm_radio   fm_radio
@@ -138,37 +156,37 @@
 /dev/oncrpc/3001006b:00010000  0666   root       qcom_oncrpc
 
 # these should not be world writable
-/dev/ttyHS0               0600   bluetooth  bluetooth
-/dev/pmem_audio           0660   system     audio
-/dev/pmem_smipool*        0660   system     camera
-/dev/radio0               0644   fm_radio   fm_radio
-/dev/i2c-0                0664   root       system
-/dev/i2c-1                0664   root       system
-/dev/i2c-2                0664   root       system
-/dev/i2c-4                0664   root       system
-/dev/msm_a2dp_in          0660   system     audio
-/dev/msm_mvs              0660   system     audio
-/dev/msm_voicememo        0660   system     audio
-/dev/aud_sub*             0777   system     audio
-/dev/qseecom              0660   system     drmrpc
-/dev/tzcom                0660   system     drmrpc
-/dev/qce                  0660   system     drmrpc
-/dev/msm_pcm_lp_dec       0660   system     audio
-/dev/msm_mvs              0660   system     audio
-/dev/qemu_trace           0666   system     system
-/dev/block/mmcblk0p17     0660   system     system
-/dev/block/mmcblk0p18     0660   system     system
-/dev/block/mmcblk0p20     0660   system     system
-/dev/block/mmcblk0p21     0660   system     system
-/dev/block/mmcblk0p22     0660   system     system
-/dev/msm_preproc_ctl      0660   system     audio
-/dev/msm_acdb             0660   system     audio
-/dev/msm_fm               0660   system     audio
-/dev/msm_rtac             0660   system     audio
-/dev/oncrpc/300000ba:00010000  0660   system     drmrpc
+# /dev/ttyHS0               0600   bluetooth  bluetooth
+# /dev/pmem_audio           0660   system     audio
+# /dev/pmem_smipool*        0660   system     camera
+# /dev/radio0               0644   fm_radio   fm_radio
+# /dev/i2c-0                0664   root       system
+# /dev/i2c-1                0664   root       system
+# /dev/i2c-2                0664   root       system
+# /dev/i2c-4                0664   root       system
+# /dev/msm_a2dp_in          0660   system     audio
+# /dev/msm_mvs              0660   system     audio
+# /dev/msm_voicememo        0660   system     audio
+# /dev/aud_sub*             0777   system     audio
+# /dev/qseecom              0660   system     drmrpc
+# /dev/tzcom                0660   system     drmrpc
+# /dev/qce                  0660   system     drmrpc
+# /dev/msm_pcm_lp_dec       0660   system     audio
+# /dev/msm_mvs              0660   system     audio
+# /dev/qemu_trace           0666   system     system
+# /dev/block/mmcblk0p17     0660   system     system
+# /dev/block/mmcblk0p18     0660   system     system
+# /dev/block/mmcblk0p20     0660   system     system
+# /dev/block/mmcblk0p21     0660   system     system
+# /dev/block/mmcblk0p22     0660   system     system
+# /dev/msm_preproc_ctl      0660   system     audio
+# /dev/msm_acdb             0660   system     audio
+# /dev/msm_fm               0660   system     audio
+# /dev/msm_rtac             0660   system     audio
+# /dev/oncrpc/300000ba:00010000  0660   system     drmrpc
 
 # sysfs properties
-/sys/devices/virtual/smdpkt/smdcntl*       open_timeout   0664 radio radio
+# /sys/devices/virtual/smdpkt/smdcntl*       open_timeout   0664 radio radio
 
 
 #permissions for sensors
