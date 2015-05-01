@@ -340,13 +340,6 @@ PRODUCT_PACKAGES += libqdutils
 #LIBQDMETADATA
 PRODUCT_PACKAGES += libqdMetaData
 
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    VisualizationWallpapers \
-    librs_jni
-
 #LOC_API
 PRODUCT_PACKAGES += libloc_api-rpc-qc
 
@@ -453,14 +446,6 @@ PRODUCT_PACKAGES += com.android.future.usb.accessory
 
 #VT_JNI
 #PRODUCT_PACKAGES += libvt_jni
-
-# Wallpapers
-PRODUCT_PACKAGES += \
-    Galaxy4 \
-    HoloSpiralWallpaper \
-    MagicSmokeWallpapers \
-    NoiseField \
-    PhaseBeam
 
 # wifi/bt mac helper
 PRODUCT_PACKAGES += \
