@@ -231,12 +231,8 @@ PRODUCT_PACKAGES += \
 
 #INIT
 PRODUCT_PACKAGES += \
-    init.qcom.composition_type.sh \
-    init.target.8x25.sh \
     init.qcom.mdm_links.sh \
     init.qcom.modem_links.sh \
-    init.qcom.thermal_conf.sh \
-    init.qcom.sensor.sh \
     init.target.rc \
     init.qcom.bt.sh \
     init.qcom.btdun.sh \
@@ -252,11 +248,8 @@ PRODUCT_PACKAGES += \
     init.qcom.class_main.sh \
     init.qcom.wifi.sh \
     vold.fstab \
-    init.qcom.ril.path.sh \
-    init.qcom.ril.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
-    usf_post_boot.sh \
     init.qcom.efs.sync.sh \
     ueventd.qcom.rc \
     init.ath3k.bt.sh \
