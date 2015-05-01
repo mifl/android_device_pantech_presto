@@ -1,3 +1,5 @@
+ifeq ($(BOARD_HAVE_PRESTO_AUDIO_MODULE),true)
+
 #AUDIO_POLICY_TEST := true
 #ENABLE_AUDIO_DUMP := true
 
@@ -36,7 +38,7 @@ ifeq ($(BOARD_HAVE_SONY_AUDIO),true)
 endif
 
 ifeq ($(BOARD_HAVE_PRESTO_AUDIO),true)
-LOCAL_CFLAGS += -DPRESTO_AUDIO
+  common_cflags += -DPRESTO_AUDIO
 endif
 
 ifeq ($(BOARD_HAVE_BACK_MIC_CAMCORDER),true)
@@ -98,3 +100,44 @@ LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 LOCAL_CFLAGS += $(common_cflags)
 
 include $(BUILD_SHARED_LIBRARY)
+
+# The audio policy is implemented on top of legacy policy code
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := \
+    AudioPolicyManager.cpp \
+    audio_policy_hal.cpp
+
+LOCAL_SHARED_LIBRARIES := \
+    libcutils \
+    libutils \
+    libmedia
+
+LOCAL_STATIC_LIBRARIES := \
+    libaudiohw_legacy \
+    libmedia_helper \
+    libaudiopolicy_legacy
+
+LOCAL_MODULE := audio_policy.presto
+LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+
+LOCAL_C_INCLUDES += hardware/libhardware_legacy/audio
+
+LOCAL_CFLAGS += $(common_cflags)
+
+include $(BUILD_SHARED_LIBRARY)
+
+# Load audio_policy.conf to system/etc/
+include $(CLEAR_VARS)
+LOCAL_MODULE       := audio_policy.conf
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/
+LOCAL_SRC_FILES    := audio_policy.conf
+include $(BUILD_PREBUILT)
+
+endif
