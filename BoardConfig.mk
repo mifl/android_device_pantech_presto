@@ -26,24 +26,48 @@ BOARD_VENDOR := pantech
 # Headers path
 TARGET_SPECIFIC_HEADER_PATH := device/pantech/presto/include
 
-# inherit from pantech msm8660-common
--include device/pantech/msm8660-common/BoardConfigCommon.mk
-
 #----------------------------------------------------------------------
+
+# Architecture
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_VARIANT := scorpion
+TARGET_CPU_SMP := true
+ARCH_ARM_HAVE_TLS_REGISTER := true
+TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
+
+# Platform
+TARGET_BOARD_PLATFORM := msm8660
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := PantechP9070,presto
 
-#Audio
+# Audio
 BOARD_HAVE_PRESTO_AUDIO := true
+BOARD_QCOM_TUNNEL_LPA_ENABLED := true
+BOARD_QCOM_VOIP_ENABLED := true
+#BOARD_USES_ALSA_AUDIO := false
+BOARD_USES_LEGACY_ALSA_AUDIO := true
 
 # Bluetooth
+BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/pantech/presto/bluetooth/
 BOARD_BLUEDROID_VENDOR_CONF := device/pantech/presto/bluetooth/vnd_bt.txt
+TARGET_NEEDS_BLUETOOTH_INIT_DELAY := true
 
 # Board info
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_HAS_LARGE_FILESYSTEM := true
+BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_USES_MMCUTILS := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8660_SURF
@@ -67,13 +91,31 @@ BOARD_CACHEIMAGE_PARTITION_SIZE         := 178257920    # 174080×1024   (mmcblk
 BOARD_TOMBSTONESIMAGE_PARTITION_SIZE    := 268435456    # 262144×1024   (mmcblk0p17)
 BOARD_FLASH_BLOCK_SIZE                  := 131072       # (BOARD_KERNEL_PAGESIZE * 64)
 
+# Flags
+#COMMON_GLOBAL_CFLAGS += -DQCOM_ACDB_ENABLED
+COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
+
 # FM radio
 #BOARD_HAVE_FM_RADIO := true
 #BOARD_HAVE_QCOM_FM := true
 #COMMON_GLOBAL_CFLAGS += -DQCOM_FM_ENABLED
 
+# GPS
+BOARD_USES_QCOM_GPS := true
+BOARD_USES_QCOM_LIBRPC := true
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm8660
+BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
+#TARGET_NO_RPC := true
+
 # Graphics
+BOARD_EGL_CFG := device/pantech/presto/prebuilt/system/lib/egl/egl.cfg
+#COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
+#TARGET_NO_HW_VSYNC := true
+TARGET_USES_C2D_COMPOSITION := true
+TARGET_USES_ION := true
+USE_OPENGL_RENDERER := true
 
 # HDMI
 TARGET_HAVE_HDMI_OUT := false
@@ -95,6 +137,10 @@ BOARD_CHARGER_RES := device/pantech/presto/charger
 #BOARD_BATTERY_DEVICE_NAME := "battery"
 TARGET_POWERHAL_VARIANT := cm
 
+# QCOM hardware
+BOARD_USES_QCOM_HARDWARE := true
+BOARD_USES_QCOM_LIBS := true
+
 # Radio fixes
 BOARD_RIL_CLASS := ../../../device/pantech/presto/ril/PantechQualcommUiccRIL.java
 
@@ -109,10 +155,21 @@ BOARD_SDCARD_DEVICE_SECONDARY   := /dev/block/mmcblk1
 BOARD_SDEXT_DEVICE              := /dev/block/mmcblk1p1
 
 # Target info
+TARGET_DISPLAY_INSECURE_MM_HEAP := true
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_KERNEL     := false
+TARGET_NO_RADIOIMAGE := true
 TARGET_PROVIDES_LIBLIGHT    := true
 TARGET_QCOM_AUDIO_VARIANT   := caf
 TARGET_QCOM_DISPLAY_VARIANT := caf
 TARGET_QCOM_MEDIA_VARIANT   := caf
+TARGET_USERIMAGES_USE_EXT4  := true
+#TARGET_USES_OVERLAY := true
+TARGET_USES_QCOM_BSP := true
+
+# Time - Add support for kernel user helpers and gettimeofday() in bionic
+#KERNEL_HAS_GETTIMEOFDAY_HELPER := true
 
 # USB
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
@@ -121,6 +178,10 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_MAX_PARTITIONS := 28
 BOARD_SUPPRESS_EMMC_WIPE := true
+
+# Webkit
+ENABLE_WEBGL := true
+TARGET_FORCE_CPU_UPLOAD := true
 
 # Wifi
 -include device/pantech/presto/wifi/board-bcm.mk
