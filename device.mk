@@ -95,7 +95,9 @@ PRODUCT_PACKAGES += \
 #PRODUCT_PACKAGES += FmRadioReceiver
 
 # msm8660
-PRODUCT_PACKAGES += power.msm8660
+PRODUCT_PACKAGES += \
+    lights.msm8660 \
+    power.msm8660
 
 # Presto Settings
 PRODUCT_PACKAGES += AdvancedSettings

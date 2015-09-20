@@ -104,6 +104,7 @@ BOARD_SDCARD_DEVICE_SECONDARY   := /dev/block/mmcblk1
 BOARD_SDEXT_DEVICE              := /dev/block/mmcblk1p1
 
 # Target info
+TARGET_PROVIDES_LIBLIGHT    := true
 TARGET_QCOM_AUDIO_VARIANT   := caf
 TARGET_QCOM_DISPLAY_VARIANT := caf
 TARGET_QCOM_MEDIA_VARIANT   := caf
