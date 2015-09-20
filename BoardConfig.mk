@@ -89,6 +89,12 @@ TARGET_KERNEL_CONFIG            := cyanogenmod_presto_defconfig
 TARGET_KERNEL_SOURCE            := kernel/pantech/msm8660-common
 TARGET_PREBUILT_KERNEL          := device/pantech/presto/prebuilt/kernel/kernel
 
+# Power/Charger
+BOARD_CHARGER_RES := device/pantech/presto/charger
+#BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
+#BOARD_BATTERY_DEVICE_NAME := "battery"
+TARGET_POWERHAL_VARIANT := cm
+
 # Radio fixes
 BOARD_RIL_CLASS := ../../../device/pantech/presto/ril/PantechQualcommUiccRIL.java
 

@@ -86,8 +86,16 @@ PRODUCT_PACKAGES += audio.primary.msm8660
 # Camera
 #PRODUCT_PACKAGES += camera.presto
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger \
+    charger_res_images
+
 # FM Radio
 #PRODUCT_PACKAGES += FmRadioReceiver
+
+# msm8660
+PRODUCT_PACKAGES += power.msm8660
 
 # Presto Settings
 PRODUCT_PACKAGES += AdvancedSettings
